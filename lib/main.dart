@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/ui/viwes/splash_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'const/app_string.dart';
 
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: AppString.app_name,
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       home:SplashScreen() ,
     );
