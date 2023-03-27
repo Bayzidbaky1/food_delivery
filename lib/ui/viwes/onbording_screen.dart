@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/ui/viwes/auth/login_screen.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:intro_screen_onboarding_flutter/introduction.dart';
 import 'package:intro_screen_onboarding_flutter/introscreenonboarding.dart';
 
+import '../route/route.dart';
 import 'auth/register_screen.dart';
 
 class OnbordingScreen extends StatelessWidget {
@@ -38,12 +41,7 @@ class OnbordingScreen extends StatelessWidget {
         backgroudColor: Colors.white,
         introductionList: list,
         onTapSkipButton: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => LoginScreen(),
-            ), //MaterialPageRoute
-          );
+          Get.toNamed(login); //MaterialPageRoute
         },
       ),
     );
