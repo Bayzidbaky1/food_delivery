@@ -5,6 +5,7 @@ import 'package:food_delivery/ui/viwes/onbording_screen.dart';
 import 'package:food_delivery/ui/viwes/splash_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
+
 const String splash = '/splash';
 const String onboarding = '/onboarding';
 const String login = '/login';

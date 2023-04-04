@@ -1,12 +1,10 @@
 import 'dart:io';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/const/app_color.dart';
 import 'package:food_delivery/ui/widgets/custom_button.dart';
 import 'package:food_delivery/ui/widgets/custom_textfield.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../route/route.dart';
 

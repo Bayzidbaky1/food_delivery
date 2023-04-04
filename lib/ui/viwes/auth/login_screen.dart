@@ -1,10 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../../const/app_color.dart';
 import '../../route/route.dart';
+
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_textfield.dart';
 
@@ -48,7 +50,11 @@ class LoginScreen extends StatelessWidget {
                     if (val!.isEmpty) {
                       return "field can't be empty";
                     } else if (val.length < 6) {
-                      return "please input valid email";
+                      if (val!.isEmpty) {
+                        return "field can't be empty";
+                      } else if (val.length < 6) {
+                        return "please input valid email";
+                      }
                     }
                   },
                 ),
@@ -56,20 +62,21 @@ class LoginScreen extends StatelessWidget {
                   height: 20,
                 ),
                 CustomTextField(
-                  "Password",
-                  "Password",
-                  Icon(Icons.remove_red_eye),
-                  TextInputType.text,
-                  _passwordController,
-                  (val) {
+                    "Password",
+                    "Password",
+                    Icon(Icons.remove_red_eye),
+                    TextInputType.text,
+                    _passwordController, (val) {
+                  if (val!.isEmpty) {
+                    return "field can't be empty";
+                  } else if (val.length < 6) {
                     if (val!.isEmpty) {
                       return "field can't be empty";
                     } else if (val.length < 6) {
                       return "password can't be less than 6";
                     }
-                  },
-                  obscureText: true,
-                ),
+                  }
+                }),
                 SizedBox(
                   height: 20,
                 ),
@@ -84,10 +91,11 @@ class LoginScreen extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: 'Don\'t have an account? ',
-                    style: TextStyle(color: Colors.black,fontSize: 15),
+                    style: TextStyle(color: Colors.black, fontSize: 15),
                     children: [
                       TextSpan(
-                          recognizer: new TapGestureRecognizer()..onTap = () => Get.toNamed(register),
+                          recognizer: new TapGestureRecognizer()
+                            ..onTap = () => Get.toNamed(register),
                           text: ' Create now',
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
@@ -95,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                               fontSize: 16)),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
