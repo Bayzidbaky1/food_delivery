@@ -3,10 +3,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/const/app_color.dart';
 import 'package:food_delivery/ui/widgets/custom_button.dart';
-import 'package:food_delivery/ui/widgets/custom_textfield.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../route/route.dart';
+import '../../widgets/custom_textfield.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -90,33 +90,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                CustomTextField(
-                  "name",
-                  "name",
-                  Icon(Icons.email_outlined),
-                  TextInputType.emailAddress,
-                  _nameController,
+                customTextFIeld(
+                  _emailController,
+                  "Name",
+                  "Name",
+                  Icons.person_outline,
+                  TextInputType.text,
                   (val) {
                     if (val!.isEmpty) {
                       return "field can't be empty";
                     } else if (val.length < 4) {
-                      return "please input name more than 3 later";
+                      return "Name can't be less than 4";
                     }
                   },
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                CustomTextField(
+                customTextFIeld(
+                  _nameController,
                   "Email",
                   "Email",
-                  Icon(Icons.email_outlined),
+                  Icons.email_outlined,
                   TextInputType.emailAddress,
-                  _emailController,
                   (val) {
                     if (val!.isEmpty) {
                       return "field can't be empty";
-                    } else if (val.length < 4) {
+                    } else if (val.length < 6) {
                       return "please input valid email";
                     }
                   },
@@ -124,21 +124,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                CustomTextField(
-                  "Password",
-                  "Password",
-                  Icon(Icons.remove_red_eye),
-                  TextInputType.text,
-                  _passwordController,
-                  (val) {
-                    if (val!.isEmpty) {
-                      return "field can't be empty";
-                    } else if (val.length < 6) {
-                      return "password can't be less than 6";
-                    }
-                  },
-                  obscureText: true,
-                ),
+                customTextFIeld(_passwordController, "password", "password",
+                    Icons.password_outlined, TextInputType.text,
+                    obscureText: true, (val) {
+                  if (val!.isEmpty) {
+                    return "field can't be empty";
+                  } else if (val.length < 6) {
+                    return "password can't be less than 6";
+                  }
+                }),
                 SizedBox(
                   height: 20,
                 ),
