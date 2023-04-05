@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery/ui/viwes/onbording_screen.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../route/route.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,17 +11,23 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final box = GetStorage();
 
   //Splash screen duration function
   anotherScreen() {
-    Future.delayed(
-        Duration(seconds: 5),
-        () =>Get.toNamed(onboarding) );
+    var value = box.read("checked");
+    print(value);
+
+    if (value == true) {
+      Get.toNamed(bottomNav);
+    } else {
+      Get.toNamed(onboarding);
+    }
   }
 
   @override
   void initState() {
-    anotherScreen();
+    Future.delayed(Duration(seconds: 5), () => anotherScreen());
     super.initState();
   }
 

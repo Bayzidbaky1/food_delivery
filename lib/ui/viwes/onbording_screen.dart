@@ -1,16 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery/ui/viwes/auth/login_screen.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:intro_screen_onboarding_flutter/introduction.dart';
 import 'package:intro_screen_onboarding_flutter/introscreenonboarding.dart';
-
 import '../route/route.dart';
-import 'auth/register_screen.dart';
 
 class OnbordingScreen extends StatelessWidget {
-
+  final box = GetStorage(); // initial get storage
   List<Introduction> list = [
     Introduction(
       title: 'Buy & Sell',
@@ -37,11 +33,12 @@ class OnbordingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:IntroScreenOnboarding(
+      body: IntroScreenOnboarding(
         backgroudColor: Colors.white,
         introductionList: list,
         onTapSkipButton: () {
-          Get.toNamed(login); //MaterialPageRoute
+          box.write("checked", true);
+          Get.toNamed(bottomNav); //MaterialPageRoute
         },
       ),
     );

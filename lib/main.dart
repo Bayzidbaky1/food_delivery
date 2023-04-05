@@ -1,14 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/ui/route/route.dart';
-
-
 import 'package:get/get.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:get_storage/get_storage.dart';
 import 'const/app_string.dart';
 
-void main() {
+void main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 

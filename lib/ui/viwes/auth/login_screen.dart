@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/ui/widgets/custom_textfield.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -8,7 +9,6 @@ import '../../../const/app_color.dart';
 import '../../route/route.dart';
 
 import '../../widgets/custom_button.dart';
-import '../../widgets/custom_textfield.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
@@ -40,41 +40,30 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 40,
                 ),
-                CustomTextField(
-                  "Email",
-                  "Email",
-                  Icon(Icons.email_outlined),
-                  TextInputType.emailAddress,
+                customTextFIeld(
                   _emailController,
+                  "Email",
+                  "Email",
+                  Icons.email_outlined,
+                  TextInputType.emailAddress,
                   (val) {
                     if (val!.isEmpty) {
                       return "field can't be empty";
                     } else if (val.length < 6) {
-                      if (val!.isEmpty) {
-                        return "field can't be empty";
-                      } else if (val.length < 6) {
-                        return "please input valid email";
-                      }
+                      return "please input valid email";
                     }
                   },
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                CustomTextField(
-                    "Password",
-                    "Password",
-                    Icon(Icons.remove_red_eye),
-                    TextInputType.text,
-                    _passwordController, (val) {
+                customTextFIeld(_passwordController, "password", "password",
+                    Icons.password_outlined, TextInputType.text,
+                    obscureText: true, (val) {
                   if (val!.isEmpty) {
                     return "field can't be empty";
                   } else if (val.length < 6) {
-                    if (val!.isEmpty) {
-                      return "field can't be empty";
-                    } else if (val.length < 6) {
-                      return "password can't be less than 6";
-                    }
+                    return "password can't be less than 6";
                   }
                 }),
                 SizedBox(
@@ -82,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 CustomButton("Login", () {
                   if (_fornKey.currentState!.validate()) {
-                    Get.toNamed(home);
+                    Get.toNamed(bottomNav);
                   }
                 }),
                 SizedBox(
