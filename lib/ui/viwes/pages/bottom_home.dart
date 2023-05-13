@@ -82,11 +82,20 @@ class _BottomHomePageState extends State<BottomHomePage> {
                 SliverList(
                   delegate: SliverChildListDelegate([
                     Padding(
-                      padding: EdgeInsets.only(left: 25, right: 25, top: 60),
+                      padding: EdgeInsets.only(left: 25, right: 25, top: 20),
                       child: SingleChildScrollView(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Center(
+                                child: Text(
+                              'Welcome E-com.',
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black54),
+                            )),
+                            SizedBox(height: 20,),
                             Row(
                               children: [
                                 Flexible(
@@ -99,7 +108,7 @@ class _BottomHomePageState extends State<BottomHomePage> {
                                         filled: true,
                                         border: OutlineInputBorder(
                                             borderRadius:
-                                                BorderRadius.circular(10),
+                                                BorderRadius.circular(40),
                                             borderSide: BorderSide(
                                                 color: Colors.black54)),
                                         hintText: 'Search',
@@ -150,14 +159,14 @@ class _BottomHomePageState extends State<BottomHomePage> {
                                         });
                                       })),
                             ),
-                            
                             SizedBox(
                               height: 10,
                             ),
                             Center(
                               child: DotsIndicator(
-                                dotsCount:
-                                    sliderImg.length == 0 ? 1 : sliderImg.length,
+                                dotsCount: sliderImg.length == 0
+                                    ? 1
+                                    : sliderImg.length,
                                 position: dotPosition,
                                 decorator: DotsDecorator(
                                   color: Colors.black87, // Inactive color
@@ -302,8 +311,8 @@ class _BottomHomePageState extends State<BottomHomePage> {
                                     top: -50,
                                     child: CircleAvatar(
                                       radius: 60,
-                                      backgroundImage:
-                                          NetworkImage(data[index]['img_url'][1]),
+                                      backgroundImage: NetworkImage(
+                                          data[index]['img_url'][1]),
                                     ))
                               ],
                             ),

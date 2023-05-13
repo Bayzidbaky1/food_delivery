@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     print(value);
 
     if (value == true) {
-      Get.toNamed(bottomNav);
+      Get.toNamed(register);
     } else {
       Get.toNamed(onboarding);
     }

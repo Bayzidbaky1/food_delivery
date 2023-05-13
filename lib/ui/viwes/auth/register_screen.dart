@@ -98,7 +98,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: 20,
                 ),
                 customTextFIeld(
-                  _emailController,
+                  _nameController,
                   "Name",
                   "Name",
                   Icons.person_outline,
@@ -115,7 +115,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   height: 20,
                 ),
                 customTextFIeld(
-                  _nameController,
+                  _emailController,
                   "Email",
                   "Email",
                   Icons.email_outlined,

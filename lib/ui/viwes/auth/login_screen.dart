@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/business_logic/auth.dart';
 import 'package:food_delivery/ui/widgets/custom_textfield.dart';
 
 import 'package:get/get.dart';
@@ -71,7 +72,9 @@ class LoginScreen extends StatelessWidget {
                 ),
                 CustomButton("Login", () {
                   if (_fornKey.currentState!.validate()) {
-                    Get.toNamed(bottomNav);
+                    final email = _emailController.text;
+                    final password = _passwordController.text;
+                    Auth().login(email, password);
                   }
                 }),
                 SizedBox(

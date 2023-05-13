@@ -68,5 +68,30 @@ class Auth {
     }
   }
 
-  login() {}
+ 
+
+  login(email,password)async {
+    try {
+  final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+    email: email,
+    password: password
+  );
+  var authCredential = credential.user;
+      if (authCredential!.uid.isNotEmpty) {
+        Get.toNamed(bottomNav);
+        Get.showSnackbar(AppStyles().successSnackBar("login Succesfull"));
+      }
+} on FirebaseAuthException catch (e) {
+  if (e.code == 'user-not-found') {
+    Get.back();
+        Get.showSnackbar(AppStyles()
+            .faildSnackBar('No user found for that email.'));
+  } else if (e.code == 'wrong-password') {
+    Get.back();
+        Get.showSnackbar(AppStyles()
+            .faildSnackBar('Wrong password provided for that user.'));
+  
+  }
+}
+  }
 }

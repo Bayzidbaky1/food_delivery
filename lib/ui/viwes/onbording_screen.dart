@@ -38,7 +38,7 @@ class OnbordingScreen extends StatelessWidget {
         introductionList: list,
         onTapSkipButton: () {
           box.write("checked", true);
-          Get.toNamed(bottomNav); //MaterialPageRoute
+          Get.toNamed(register); //MaterialPageRoute
         },
       ),
     );
